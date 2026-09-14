@@ -302,43 +302,6 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
         description: "Links trouble tickets directly to physical hardware IDs, highlighting recurring hardware failures."
       }
     ]
-  },
-  {
-    id: "sacco-banking",
-    title: "Tamarind Sacco Core Banking & Financial Ledger Platform",
-    systemName: "Tamarind Sacco Core Platform",
-    unit: "Tamarind Sacco Society Limited",
-    badge: "Core Banking & Accounting",
-    unitLogo: "/logo.png",
-    businessChallenge:
-      "Member savings, share capital, loan disbursements, and monthly interest postings were tracked in complex spreadsheets prone to balance discrepancies, manual recalculation errors, and delayed monthly reporting.",
-    engineeredSolution:
-      "Architected and onboarded an independent, cloud-hosted core banking platform for Tamarind Sacco featuring an automated double-entry ledger. Every member deposit, loan repayment, and fee automatically posts balanced debit and credit entries to the general ledger, complete with automated loan eligibility calculation and guarantor commitment tracking.",
-    operationalImpact:
-      "Established 100% automated double-entry accounting integrity, eliminated spreadsheet discrepancies, and provided members with real-time balance transparency.",
-    keyOutcomes: [
-      "Automated double-entry General Ledger ensuring books are always balanced and audit-ready",
-      "Automated loan qualification and guarantor lock verification based on member savings",
-      "Asynchronous non-blocking audit logging of all member and staff transactions",
-      "Independent dedicated database and member portal"
-    ],
-    technologies: [
-      "Next.js App Router",
-      "Django REST Framework",
-      "PostgreSQL (Strict Decimal Math & Ledger Constraints)",
-      "Redis Caching",
-      "TailwindCSS"
-    ],
-    architecturalDetails: [
-      {
-        label: "Atomic Double-Entry Transactions",
-        description: "Postings are executed within database transactions where debits must equal credits, preventing out-of-balance entries."
-      },
-      {
-        label: "Guarantor Risk Engine",
-        description: "Algorithmic validation checking free member shares before locking them as collateral for approved loans."
-      }
-    ]
   }
 ];
 

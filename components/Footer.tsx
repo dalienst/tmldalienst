@@ -39,7 +39,7 @@ export default function Footer() {
               href="#systems"
               className="hover:text-white transition-colors"
             >
-              Systems Directory (8)
+              Systems Directory (7)
             </a>
             <a
               href="#standards"

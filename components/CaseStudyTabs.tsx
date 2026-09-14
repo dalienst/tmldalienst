@@ -11,7 +11,6 @@ import {
   Users,
   Building2,
   Cpu,
-  Landmark,
   CheckCircle2,
   AlertTriangle,
   Layers,
@@ -32,8 +31,7 @@ export default function CaseStudyTabs() {
     "elimu-sops": BookOpen,
     "kaizen-tracker": Users,
     "village-booking": Building2,
-    "tamarind-helpdesk": Cpu,
-    "sacco-banking": Landmark
+    "tamarind-helpdesk": Cpu
   };
 
   return (
@@ -53,8 +51,8 @@ export default function CaseStudyTabs() {
           </p>
         </div>
 
-        {/* 8-Systems Selector Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 mb-10 pb-4 border-b border-slate-200">
+        {/* 7-Systems Selector Tabs */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 mb-10 pb-4 border-b border-slate-200">
           {TAMARIND_PROJECTS_FOR_DIRECTORS.map((project) => {
             const Icon = iconMap[project.id] || Layers;
             const isSelected = project.id === selectedId;
