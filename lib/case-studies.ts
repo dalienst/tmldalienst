@@ -19,17 +19,17 @@ export interface TamarindDirectorCaseStudy {
 export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
   {
     id: "ai-analyst",
-    title: "Executive AI Analyst & Guest Feedback Intelligence System",
-    systemName: "Tamarind AI Analyst",
+    title: "AI Guest Sentiment & Operations Analyst",
+    systemName: "AI Guest Sentiment & Operations Analyst",
     unit: "Tamarind Mombasa (Dhow, Village, Restaurant)",
     badge: "Operational AI & Intelligence",
     unitLogo: "/logo.png",
     businessChallenge:
-      "Guest feedback across dining rooms, dhow cruises, and apartment suites was captured on physical paper comment cards and scattered spreadsheets. This created significant reporting lag, requiring hours of manual collation each month and preventing General Management from quickly spotting emerging service complaints or celebrating recognized staff.",
+      "Guest feedback across dining rooms, dhow cruises, and apartment suites was captured on physical paper comment cards and scattered spreadsheets. This created reporting delays and made it difficult for General Management to quickly identify emerging service trends or celebrate recognized staff.",
     engineeredSolution:
-      "Architected and deployed a centralized guest feedback intelligence platform featuring an integrated conversational AI analyst powered by Google Gemini with lightweight SQL context window injection. Management can ask plain-English operational questions (e.g., 'What were the top guest concerns on the Dhow this weekend?' or 'Which dining room staff received positive mentions?') and receive immediate, data-backed summaries. Built an automated cron email service delivering monthly visual performance digests directly to General Managers on the 1st of every month.",
+      "Architected and deployed a centralized guest feedback intelligence platform featuring an integrated conversational AI analyst powered by Google Gemini. Management can ask plain-English operational questions (e.g., 'What were the key guest comments on the Dhow this weekend?' or 'Which dining room staff received positive mentions?') and receive immediate, data-backed summaries. Built an automated cron email service delivering monthly visual performance digests directly to General Managers on the 1st of every month.",
     operationalImpact:
-      "Reduced guest issue escalation from weeks to under 24 hours and completely eliminated hours of manual spreadsheet compilation every month.",
+      "Accelerated guest feedback turnaround and eliminated manual spreadsheet collation for monthly management reporting.",
     keyOutcomes: [
       "Natural language ad-hoc business intelligence for General Managers and Operations Heads",
       "Dynamic 50-comment slice context injection avoiding latency hangs and hallucinations",
@@ -61,17 +61,17 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
   },
   {
     id: "finance-portal",
-    title: "Credit Note Governance & Posting Anomaly Detection Ledger",
-    systemName: "Group Finance Integrity Portal",
+    title: "Finance & Credit Note Portal",
+    systemName: "Finance & Credit Note Portal",
     unit: "Group Finance & Internal Audit",
     badge: "Financial Governance & Audit",
     unitLogo: "/logo2.png",
     businessChallenge:
       "Credit note requests moved across desks on physical paper routing slips. This resulted in processing delays across properties, audit paper trail gaps, and the ongoing risk of undetected duplicate or triplicate credit entries in the general ledger.",
     engineeredSolution:
-      "Engineered an online credit note management platform equipped with an automated anomaly-detection algorithm that cross-checks invoice numbers, guest folios, and amounts to instantly flag potential duplicate and triplicate postings. Replaced manual paperwork with an auditable four-tier digital approval workflow: Initiator → Internal Audit → Financial Controller → General Manager, complete with instant email action alerts and one-click PDF reconciliation summaries.",
+      "Engineered an online credit note management platform equipped with an automated verification check that cross-checks invoice numbers, guest folios, and amounts to flag potential duplicate and triplicate postings. Replaced manual paperwork with an auditable four-tier digital approval workflow: Initiator → Internal Audit → Financial Controller → General Manager, complete with instant email action alerts and one-click PDF reconciliation summaries.",
     operationalImpact:
-      "Accelerated credit note approval turnaround times by 75% and established a complete, unalterable digital audit trail across all commercial adjustments.",
+      "Streamlined credit note turnaround and established a verifiable digital audit trail across commercial adjustments.",
     keyOutcomes: [
       "Automated algorithmic detection of duplicate/triplicate postings prior to sign-off",
       "Strict 4-tier digital approval pipeline with role-based segregation of duties",
