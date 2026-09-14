@@ -26,8 +26,8 @@ export default function RoiSummary() {
     {
       stat: "< 1s",
       title: "Gate & Dock QR Validation",
-      platform: "Dhow Core & Sherehe Events",
-      description: "Client-side video stream QR canvas decoding on mobile browsers, eliminating check-in queues for daily dhow harbour cruises and high-capacity concerts like L-Boogie.",
+      platform: "Dhow Core & Digital Ticketing",
+      description: "Client-side video stream QR canvas decoding on mobile browsers, eliminating check-in queues for daily dhow dining cruises and high-capacity events like L-Boogie.",
       impact: "Zero dockside bottlenecks · 100% counterfeit prevention"
     }
   ];

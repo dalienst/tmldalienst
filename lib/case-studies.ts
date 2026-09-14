@@ -84,7 +84,7 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
       "Natural language ad-hoc business intelligence for General Managers and Operations Heads",
       "Dynamic 50-comment slice context injection avoiding latency hangs and hallucinations",
       "Automated monthly visual email performance reports dispatched via scheduled cron",
-      "Actionable sentiment breakdown across dining rooms, harbour sailings, and apartment suites"
+      "Actionable sentiment breakdown across dining rooms, dhow cruise sailings, and apartment suites"
     ],
     technologies: [
       "Google Generative AI (Gemini 2.5 Flash)",
@@ -154,11 +154,54 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
     ]
   },
   {
+    id: "village-booking",
+    title: "Tamarind Village Web Revamp & Direct Booking Engine Integration",
+    systemName: "Tamarind Village Web Architecture",
+    unit: "Tamarind Village & Group Revenue Management",
+    badge: "Direct Distribution & Revenue",
+    coreValue: "Shareholder Satisfaction / Financial Results",
+    coreValueAlignment: "Achieves long-term profitability and shareholder value by optimizing direct bookings, transparent rates, and reducing OTA commission leakages.",
+    unitLogo: "/village.png",
+    businessChallenge:
+      "Heavy reliance on third-party Online Travel Agencies (OTAs) resulted in high 15%–25% commission deductions on luxury oceanfront suites, alongside manual routing delays for banquet, meeting, and dining inquiries.",
+    engineeredSolution:
+      "Supported the technical overhaul and redesign of the Tamarind Village website and integrated the ProfitRoom direct booking engine API, allowing guests to view live suite availability, view transparent seasonal rates, and reserve directly online. Built an automated inquiry engine that instantly categorizes and routes guest questions for restaurants, meetings, and accommodations directly to departmental inboxes with zero manual delay.",
+    operationalImpact:
+      "Minimized third-party booking commissions, boosted direct guest inquiries, and established live rate parity across booking channels.",
+    keyOutcomes: [
+      "Direct ProfitRoom booking engine integration with live suite rates and availability",
+      "Significant reduction in third-party OTA commission leakage on direct reservations",
+      "Automated routing of event and dining inquiries to specific department inboxes",
+      "Fast, fluid luxury UI with high mobile conversion"
+    ],
+    technologies: [
+      "React 19 & Next.js",
+      "ProfitRoom API Integration",
+      "PostgreSQL",
+      "Resend Automated Email Dispatch",
+      "SEO Schema.org Structured Metadata"
+    ],
+    architecturalDetails: [
+      {
+        label: "ProfitRoom API Deep Linking",
+        description: "Seamless synchronization between promotional room packages and the ProfitRoom booking checkout engine."
+      },
+      {
+        label: "Lead Categorization Engine",
+        description: "Keyword-based form parsing directing wedding, conference, and suite inquiries to their respective coordinators."
+      },
+      {
+        label: "Mobile Conversion Optimization",
+        description: "Lightweight asset delivery ensuring under 1.5s load times on international guest mobile connections."
+      }
+    ]
+  },
+  {
     id: "dhow-cruise",
     title: "Tamarind Dhow Cruise Operations & Digital QR Boarding Scanner",
     systemName: "Tamarind Dhow Cruise Core",
-    unit: "Tamarind Dhow (Mombasa Harbour)",
-    badge: "Marine Operations & Cost Control",
+    unit: "Tamarind Dhow Restaurant",
+    badge: "Dhow Sailing & Cost Control",
     coreValue: "Customer Satisfaction",
     coreValueAlignment: "Ensures every dining cruise guest experiences a welcoming, frictionless arrival through sub-second QR boarding while equipping the galley with live dietary and headcount visibility.",
     unitLogo: "/dhow.jpg",
@@ -192,8 +235,8 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
         description: "Real-time formula comparing booked guest covers against pantry provisions, calculating daily food cost percentage immediately upon cruise completion."
       },
       {
-        label: "Maritime Safety Manifest",
-        description: "Instant electronic passenger manifest exportable in real time for port authorities and emergency management."
+        label: "Dhow Safety Manifest",
+        description: "Instant electronic passenger manifest exportable in real time for coastal authorities and emergency management."
       }
     ]
   },
@@ -280,49 +323,6 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
       {
         label: "Multi-Tier Review Pipeline",
         description: "Visual Kanban workflow allowing department heads to estimate implementation costs and tag recognized staff."
-      }
-    ]
-  },
-  {
-    id: "village-booking",
-    title: "Tamarind Village Web Revamp & Direct Booking Engine Integration",
-    systemName: "Tamarind Village Web Architecture",
-    unit: "Tamarind Village & Group Revenue Management",
-    badge: "Direct Distribution & Revenue",
-    coreValue: "Shareholder Satisfaction / Financial Results",
-    coreValueAlignment: "Achieves long-term profitability and shareholder value by optimizing direct bookings, transparent rates, and reducing OTA commission leakages.",
-    unitLogo: "/village.png",
-    businessChallenge:
-      "Heavy reliance on third-party Online Travel Agencies (OTAs) resulted in high 15%–25% commission deductions on luxury oceanfront suites, alongside manual routing delays for banquet, meeting, and dining inquiries.",
-    engineeredSolution:
-      "Supported the technical overhaul and redesign of the Tamarind Village website and integrated the ProfitRoom direct booking engine API, allowing guests to view live suite availability, view transparent seasonal rates, and reserve directly online. Built an automated inquiry engine that instantly categorizes and routes guest questions for restaurants, meetings, and accommodations directly to departmental inboxes with zero manual delay.",
-    operationalImpact:
-      "Minimized third-party booking commissions, boosted direct guest inquiries, and established live rate parity across booking channels.",
-    keyOutcomes: [
-      "Direct ProfitRoom booking engine integration with live suite rates and availability",
-      "Significant reduction in third-party OTA commission leakage on direct reservations",
-      "Automated routing of event and dining inquiries to specific department inboxes",
-      "Fast, fluid luxury UI with high mobile conversion"
-    ],
-    technologies: [
-      "React 19 & Next.js",
-      "ProfitRoom API Integration",
-      "PostgreSQL",
-      "Resend Automated Email Dispatch",
-      "SEO Schema.org Structured Metadata"
-    ],
-    architecturalDetails: [
-      {
-        label: "ProfitRoom API Deep Linking",
-        description: "Seamless synchronization between promotional room packages and the ProfitRoom booking checkout engine."
-      },
-      {
-        label: "Lead Categorization Engine",
-        description: "Keyword-based form parsing directing wedding, conference, and suite inquiries to their respective coordinators."
-      },
-      {
-        label: "Mobile Conversion Optimization",
-        description: "Lightweight asset delivery ensuring under 1.5s load times on international guest mobile connections."
       }
     ]
   },

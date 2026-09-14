@@ -93,7 +93,7 @@ export default function Hero() {
               Guest Feedback &amp; AI Analytics
             </span>
             <span className="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-600">
-              Marine QR Boarding &amp; Provisioning
+              Dhow QR Boarding &amp; Provisioning
             </span>
             <span className="px-3 py-1 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-600">
               Staff SOPs &amp; Kaizen Intake

@@ -15,10 +15,10 @@ export default function DepartmentSpotlight() {
       metric: "Operational Intelligence"
     },
     {
-      name: "Tamarind Dhow Marine Division",
-      headline: "Jetty Check-in & F&B Cost Management",
+      name: "Tamarind Dhow Restaurant",
+      headline: "Dhow Boarding & Daily F&B Cost Management",
       description: "Implemented smartphone camera QR code boarding passes at the jetty, streamlining boarding operations and providing kitchen supervisors with daily F&B cost tracking.",
-      metric: "Marine Operations"
+      metric: "Dhow Sailing"
     },
     {
       name: "Group HR, Training & Staff Welfare",
