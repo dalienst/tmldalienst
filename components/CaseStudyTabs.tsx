@@ -2,80 +2,81 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ENTERPRISE_CASE_STUDIES, CaseStudy } from "@/lib/case-studies";
+import { TAMARIND_PROJECTS_FOR_DIRECTORS, TamarindDirectorCaseStudy } from "@/lib/case-studies";
 import {
+  Bot,
   ShieldCheck,
-  BrainCircuit,
   Compass,
-  GraduationCap,
-  Lightbulb,
+  BookOpen,
+  Users,
   Building2,
-  Ticket,
   Cpu,
-  CheckCircle,
-  AlertCircle,
-  ArrowRight,
+  Landmark,
+  CheckCircle2,
+  AlertTriangle,
+  Layers,
   Code2
 } from "lucide-react";
 
 export default function CaseStudyTabs() {
-  const [selectedId, setSelectedId] = useState<string>(ENTERPRISE_CASE_STUDIES[0].id);
+  const [selectedId, setSelectedId] = useState<string>(TAMARIND_PROJECTS_FOR_DIRECTORS[0].id);
 
-  const activeStudy =
-    ENTERPRISE_CASE_STUDIES.find((cs) => cs.id === selectedId) ||
-    ENTERPRISE_CASE_STUDIES[0];
+  const activeProject =
+    TAMARIND_PROJECTS_FOR_DIRECTORS.find((p) => p.id === selectedId) ||
+    TAMARIND_PROJECTS_FOR_DIRECTORS[0];
 
   const iconMap: Record<string, any> = {
+    "ai-analyst": Bot,
     "finance-portal": ShieldCheck,
-    "ai-analyst": BrainCircuit,
     "dhow-cruise": Compass,
-    "elimu-lms": GraduationCap,
-    "kaizen-portal": Lightbulb,
+    "elimu-sops": BookOpen,
+    "kaizen-tracker": Users,
     "village-booking": Building2,
-    "sherehe-ticketing": Ticket,
-    "it-service-desk": Cpu
+    "tamarind-helpdesk": Cpu,
+    "sacco-banking": Landmark
   };
 
   return (
-    <section id="case-studies" className="py-24 bg-[#0B1120] text-white">
+    <section id="systems" className="py-20 bg-[#00201a] text-white border-b border-[#004d40]">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="max-w-5xl mb-14">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#eb8a0c]/10 border border-[#eb8a0c]/30 text-xs font-semibold text-[#eb8a0c] mb-3">
-            <span>In-Depth Systems Engineering</span>
+        <div className="max-w-5xl mb-12">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#003830] border border-[#d97706]/30 text-xs font-semibold text-amber-200 mb-3">
+            <Layers className="w-3.5 h-3.5 text-[#d97706]" />
+            <span>Operational Systems Directory</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Enterprise Case Studies (8 Systems)
+            Detailed Systems Case Studies
           </h2>
-          <p className="mt-3 text-base text-slate-400 leading-relaxed">
-            Detailed examinations of the operational challenges, technical architectures, and measurable ROI delivered across the Tamarind Group fleet.
+          <p className="mt-2 text-sm sm:text-base text-emerald-100/70 leading-relaxed">
+            Select a platform below to examine the specific operational challenge, engineered architecture, and measurable outcomes delivered for Tamarind Management Limited.
           </p>
         </div>
 
-        {/* Tab Switcher */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 mb-10 pb-4 border-b border-slate-800">
-          {ENTERPRISE_CASE_STUDIES.map((study) => {
-            const Icon = iconMap[study.id] || ShieldCheck;
-            const isSelected = study.id === selectedId;
+        {/* 8-Systems Selector Tabs */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 mb-10 pb-4 border-b border-[#004d40]">
+          {TAMARIND_PROJECTS_FOR_DIRECTORS.map((project) => {
+            const Icon = iconMap[project.id] || Layers;
+            const isSelected = project.id === selectedId;
             return (
               <button
-                key={study.id}
-                onClick={() => setSelectedId(study.id)}
-                className={`p-3 rounded-xl text-left transition-all flex flex-col justify-between ${
+                key={project.id}
+                onClick={() => setSelectedId(project.id)}
+                className={`p-3.5 rounded-xl text-left transition-all flex flex-col justify-between cursor-pointer ${
                   isSelected
-                    ? "bg-slate-800 border-2 border-[#eb8a0c] shadow-md shadow-amber-950/20"
-                    : "bg-slate-900/60 border border-slate-800/80 hover:bg-slate-800/60 text-slate-400"
+                    ? "bg-[#004239] border-2 border-[#d97706] shadow-lg shadow-black/40"
+                    : "bg-[#002b24] border border-[#004d40] hover:bg-[#003830] text-emerald-200/70"
                 }`}
               >
-                <div className={`p-2 rounded-lg w-fit mb-2 ${isSelected ? "bg-[#eb8a0c] text-white" : "bg-slate-800 text-slate-400"}`}>
+                <div className={`p-2 rounded-lg w-fit mb-2.5 ${isSelected ? "bg-[#d97706] text-white" : "bg-[#003830] text-emerald-300"}`}>
                   <Icon className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider block truncate text-slate-500">
-                    {study.badge}
+                  <span className="text-[10px] uppercase font-bold tracking-wider block text-amber-300/80 truncate">
+                    {project.badge.split("&")[0]}
                   </span>
-                  <span className={`text-xs font-semibold line-clamp-1 ${isSelected ? "text-white" : "text-slate-300"}`}>
-                    {study.title.split(" ")[0]} {study.title.split(" ")[1]}
+                  <span className={`text-xs font-semibold line-clamp-2 mt-0.5 leading-snug ${isSelected ? "text-white" : "text-emerald-100/80"}`}>
+                    {project.systemName}
                   </span>
                 </div>
               </button>
@@ -83,142 +84,138 @@ export default function CaseStudyTabs() {
           })}
         </div>
 
-        {/* Active Case Study Details Panel */}
-        <div className="bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden p-6 sm:p-10">
+        {/* Active System Detailed Dossier Panel */}
+        <div className="bg-[#002922] rounded-3xl border border-[#004d40] shadow-2xl p-6 sm:p-10">
           {/* Header */}
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-6 border-b border-slate-800">
-            <div>
-              <div className="flex items-center space-x-2.5 mb-2">
-                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#eb8a0c]/10 text-[#eb8a0c] border border-[#eb8a0c]/30">
-                  {activeStudy.badge}
-                </span>
-                <span className="text-xs text-slate-400 font-medium">
-                  {activeStudy.businessDomain}
-                </span>
-              </div>
-              <div className="flex items-center space-x-3 mt-1">
-                {activeStudy.unitLogo && (
-                  <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 shadow-md border border-slate-700 overflow-hidden">
-                    <Image
-                      src={activeStudy.unitLogo}
-                      alt={`${activeStudy.title} Unit Logo`}
-                      width={44}
-                      height={44}
-                      className="object-contain"
-                    />
-                  </div>
-                )}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-[#004239] mb-8">
+            <div className="flex items-start space-x-4">
+              {activeProject.unitLogo && (
+                <div className="w-14 h-14 rounded-2xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-md border border-white/20 overflow-hidden">
+                  <Image
+                    src={activeProject.unitLogo}
+                    alt={`${activeProject.unit} Logo`}
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
+                </div>
+              )}
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                  <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-[#004239] text-amber-200 border border-[#d97706]/30">
+                    {activeProject.badge}
+                  </span>
+                  <span className="text-xs text-emerald-300/80 font-medium">
+                    {activeProject.unit}
+                  </span>
+                </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                  {activeStudy.title}
+                  {activeProject.title}
                 </h3>
               </div>
             </div>
+
+            <div className="px-3.5 py-1.5 rounded-lg bg-[#00201a] border border-[#004d40] text-xs text-emerald-200/80 font-mono shrink-0">
+              System ID: <span className="text-amber-300">{activeProject.id}</span>
+            </div>
           </div>
 
-          {/* Executive Summary */}
-          <div className="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/60 mb-8">
-            <p className="text-base text-slate-200 leading-relaxed font-normal">
-              {activeStudy.executiveSummary}
-            </p>
+          {/* Operational Challenge vs Engineered Solution */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            {/* The Operational Challenge */}
+            <div className="p-6 rounded-2xl bg-[#201010] border border-red-900/40 space-y-2.5">
+              <div className="flex items-center space-x-2 text-red-300 mb-2">
+                <AlertTriangle className="w-4 h-4 text-red-400" />
+                <h4 className="text-xs font-bold uppercase tracking-wider">
+                  The Operational Challenge
+                </h4>
+              </div>
+              <p className="text-xs sm:text-sm text-red-100/80 leading-relaxed">
+                {activeProject.businessChallenge}
+              </p>
+            </div>
+
+            {/* Engineered Solution */}
+            <div className="p-6 rounded-2xl bg-[#003830] border border-[#005a4b] space-y-2.5">
+              <div className="flex items-center space-x-2 text-emerald-300 mb-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <h4 className="text-xs font-bold uppercase tracking-wider">
+                  Engineered Solution &amp; Workflows
+                </h4>
+              </div>
+              <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed">
+                {activeProject.engineeredSolution}
+              </p>
+            </div>
           </div>
 
-          {/* Quantifiable ROI Metric Cards */}
-          <div className="mb-10">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#eb8a0c] mb-4">
-              Verified ROI & Business Performance
+          {/* Measurable Operational Impact Banner */}
+          <div className="p-5 rounded-2xl bg-[#00332a] border border-[#d97706]/40 mb-8 flex items-start space-x-3.5">
+            <ShieldCheck className="w-5 h-5 text-[#d97706] shrink-0 mt-0.5" />
+            <div>
+              <span className="text-xs uppercase font-bold tracking-wider text-amber-300 block">
+                Measurable Business &amp; Operational Impact
+              </span>
+              <p className="text-sm font-semibold text-white mt-1 leading-snug">
+                {activeProject.operationalImpact}
+              </p>
+            </div>
+          </div>
+
+          {/* Key Operational Outcomes */}
+          <div className="mb-8">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-amber-300 mb-3">
+              Verified Operational Outcomes
             </h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {activeStudy.quantifiableROI.map((roi, rIdx) => (
-                <div
-                  key={rIdx}
-                  className="p-5 rounded-xl bg-slate-800/40 border border-slate-800 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="text-3xl sm:text-4xl font-black text-amber-400 mb-1">
-                      {roi.metric}
-                    </div>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider block mb-2">
-                      {roi.label}
-                    </span>
-                    <p className="text-xs text-slate-400 leading-relaxed">
-                      {roi.description}
-                    </p>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {activeProject.keyOutcomes.map((outcome, idx) => (
+                <div key={idx} className="p-3.5 rounded-xl bg-[#00201a] border border-[#004239] flex items-start space-x-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span className="text-xs text-emerald-100/90 leading-normal">{outcome}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Problem vs Architectural Solution */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
-            <div className="p-6 rounded-2xl bg-red-950/20 border border-red-900/30">
-              <div className="flex items-center space-x-2 text-red-400 mb-3">
-                <AlertCircle className="w-5 h-5" />
-                <h4 className="text-sm font-bold uppercase tracking-wider">
-                  The Enterprise Challenge
-                </h4>
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                {activeStudy.businessProblem}
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/30">
-              <div className="flex items-center space-x-2 text-emerald-400 mb-3">
-                <CheckCircle className="w-5 h-5" />
-                <h4 className="text-sm font-bold uppercase tracking-wider">
-                  Architectural Engineering
-                </h4>
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                {activeStudy.architecturalSolution}
-              </p>
+          {/* Architectural Breakdown */}
+          <div className="mb-8 pt-6 border-t border-[#004239]">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-amber-300 mb-3 flex items-center space-x-2">
+              <Code2 className="w-4 h-4 text-[#d97706]" />
+              <span>Technical Architecture &amp; System Details</span>
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {activeProject.architecturalDetails.map((detail, idx) => (
+                <div key={idx} className="p-4 rounded-xl bg-[#00201a] border border-[#004239] space-y-1.5">
+                  <span className="text-xs font-bold text-white block">
+                    {detail.label}
+                  </span>
+                  <p className="text-xs text-emerald-200/70 leading-relaxed">
+                    {detail.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Architectural Pattern Banner */}
-          <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 mb-8 flex items-start space-x-3.5">
-            <Code2 className="w-5 h-5 text-[#eb8a0c] shrink-0 mt-0.5" />
+          {/* Production Technologies */}
+          <div className="pt-6 border-t border-[#004239] flex flex-wrap items-center justify-between gap-4">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
-                Key Architectural & Code Pattern
+              <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-300/80 block mb-2">
+                Production Technologies
               </span>
-              <p className="text-sm font-mono text-amber-200 mt-1">
-                {activeStudy.codePatterns}
-              </p>
-            </div>
-          </div>
-
-          {/* Core Features & Technologies */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8 border-t border-slate-800">
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                Core Functional Capabilities
-              </h4>
-              <ul className="space-y-2.5">
-                {activeStudy.coreFeatures.map((feat, fIdx) => (
-                  <li key={fIdx} className="flex items-start space-x-2.5 text-xs text-slate-300">
-                    <CheckCircle className="w-4 h-4 text-[#eb8a0c] shrink-0 mt-0.5" />
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                Technologies Put in Use
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {activeStudy.technologiesPutInUse.map((tech, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-800 border border-slate-700 text-slate-200"
-                  >
+              <div className="flex flex-wrap gap-1.5">
+                {activeProject.technologies.map((tech, idx) => (
+                  <span key={idx} className="px-2.5 py-1 rounded bg-[#003830] border border-[#005a4b] text-xs font-mono text-emerald-200">
                     {tech}
                   </span>
                 ))}
               </div>
+            </div>
+
+            <div className="text-right">
+              <span className="text-[11px] text-emerald-300/70 block">
+                Status: <strong className="text-emerald-300">Live Internal Production</strong>
+              </span>
             </div>
           </div>
         </div>

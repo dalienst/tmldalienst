@@ -1,370 +1,362 @@
-export interface CaseStudy {
+export interface TamarindDirectorCaseStudy {
   id: string;
   title: string;
+  systemName: string;
+  unit: string;
   badge: string;
-  businessDomain: string;
-  executiveSummary: string;
-  businessProblem: string;
-  architecturalSolution: string;
-  technologiesPutInUse: string[];
-  codePatterns: string;
-  quantifiableROI: {
-    metric: string;
+  unitLogo?: string;
+  businessChallenge: string;
+  engineeredSolution: string;
+  operationalImpact: string;
+  keyOutcomes: string[];
+  technologies: string[];
+  architecturalDetails: {
     label: string;
     description: string;
   }[];
-  coreFeatures: string[];
-  unitLogo?: string;
 }
 
-export const ENTERPRISE_CASE_STUDIES: CaseStudy[] = [
+export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
   {
-    id: "finance-portal",
-    title: "Digitized 4-Tier Financial Approval & Credit Note Governance",
-    badge: "Financial Governance",
-    businessDomain: "Hospitality Accounting & Ledger Integrity",
-    executiveSummary: "Architected a zero-paper credit note authorization engine replacing physical paper vouchers across Tamarind properties, reducing approval latency by 75% and eliminating duplicate ledger deductions.",
-    businessProblem: "Manual paper credit notes suffered from multi-day approval delays, lost documentation across properties (Nairobi, Mombasa, Dhow, Carnivore), and vulnerability to duplicate adjustments without immediate general ledger synchronization.",
-    architecturalSolution: "Engineered a strict 4-tier state machine (Initiator → Audit → Financial Controller → General Manager) enforced at the database level with PostgreSQL and Prisma. Integrated Resend for automated tokenized email action alerts and built immutable audit logging capturing every sign-off and remark.",
-    technologiesPutInUse: [
-      "Next.js App Router (Server Actions)",
-      "PostgreSQL (Strict Foreign Key & Audit Schemas)",
-      "Prisma ORM",
-      "Resend Automated Transactional Webhooks",
-      "PDF-lib (Automated Branded Credit Vouchers)",
-      "TailwindCSS & Lucide"
+    id: "ai-analyst",
+    title: "Executive AI Analyst & Guest Feedback Intelligence System",
+    systemName: "Tamarind AI Analyst",
+    unit: "Tamarind Mombasa (Dhow, Village, Restaurant)",
+    badge: "Operational AI & Intelligence",
+    unitLogo: "/logo.png",
+    businessChallenge:
+      "Guest feedback across dining rooms, dhow cruises, and apartment suites was captured on physical paper comment cards and scattered spreadsheets. This created significant reporting lag, requiring hours of manual collation each month and preventing General Management from quickly spotting emerging service complaints or celebrating recognized staff.",
+    engineeredSolution:
+      "Architected and deployed a centralized guest feedback intelligence platform featuring an integrated conversational AI analyst powered by Google Gemini with lightweight SQL context window injection. Management can ask plain-English operational questions (e.g., 'What were the top guest concerns on the Dhow this weekend?' or 'Which dining room staff received positive mentions?') and receive immediate, data-backed summaries. Built an automated cron email service delivering monthly visual performance digests directly to General Managers on the 1st of every month.",
+    operationalImpact:
+      "Reduced guest issue escalation from weeks to under 24 hours and completely eliminated hours of manual spreadsheet compilation every month.",
+    keyOutcomes: [
+      "Natural language ad-hoc business intelligence for General Managers and Operations Heads",
+      "Dynamic 50-comment slice context injection avoiding latency hangs and hallucinations",
+      "Automated monthly visual email performance reports dispatched via scheduled cron",
+      "Actionable sentiment breakdown across dining rooms, harbour sailings, and apartment suites"
     ],
-    codePatterns: "Finite State Machine with Immutable Event Ledger & Atomic Multi-Stage Transactions",
-    quantifiableROI: [
+    technologies: [
+      "Google Generative AI (Gemini 2.5 Flash)",
+      "Next.js App Router",
+      "Django REST Framework",
+      "PostgreSQL",
+      "Resend API (Automated Cron Dispatch)",
+      "Recharts Data Visualization"
+    ],
+    architecturalDetails: [
       {
-        metric: "75%",
-        label: "Turnaround Time SLA",
-        description: "Credit note validation decreased from an average of 4 business days to under 6 hours."
+        label: "Data Ingestion Pipeline",
+        description: "Standardized intake converting physical card entries and online guest reviews into a structured PostgreSQL schema categorized by property, date, and service point."
       },
       {
-        metric: "100%",
-        label: "Audit Trail Integrity",
-        description: "Zero unverified adjustments with complete historical ledger tracking and timestamps."
+        label: "Dynamic Context Injection",
+        description: "Retrieves sliding 50-record sentiment slices dynamically injected into prompt context, ensuring fast sub-2s responses without context-window overflow."
       },
       {
-        metric: "0",
-        label: "Duplicate Postings",
-        description: "Algorithmic duplicate and triplicate voucher rejection prior to database commitment."
+        label: "Monthly Cron Dispatch",
+        description: "Railway-hosted background cron scheduler executing at 08:00 on the 1st of each month to generate executive visual summaries sent directly to GMs."
       }
-    ],
-    coreFeatures: [
-      "Multi-stage digital signature workflow enforcing separation of accounting duties",
-      "Instant PDF credit note rendering with cryptographically hashed reference numbers",
-      "Live pending-approval inbox with urgency alerts and SLA escalation countdowns",
-      "Granular departmental reporting categorized by property and cost center"
     ]
   },
   {
-    id: "ai-analyst",
-    title: "Autonomous LLM Guest Sentiment & Operational Root-Cause Intelligence",
-    badge: "Generative AI & RAG",
-    businessDomain: "Hospitality Quality Assurance & General Management",
-    executiveSummary: "Built an autonomous sentiment engine synthesizing hundreds of weekly guest survey comments into structured executive action plans, cutting guest issue turnaround to under 24 hours.",
-    businessProblem: "Guest feedback collected via table cards and online channels piled into unstructured spreadsheets. Management spent hours parsing comments, causing delays in identifying recurring culinary issues, service bottlenecks, or maintenance faults.",
-    architecturalSolution: "Designed a RAG pipeline utilizing dynamic 50-comment SQL context window injection into high-capacity LLMs (GPT-4o / Claude). Automated monthly executive digests dispatched directly to directors via Resend cron jobs scheduled at 08:00 on the 1st of every month.",
-    technologiesPutInUse: [
-      "Next.js Server-Side Context Pipeline",
-      "High-Capacity LLM API (GPT-4o & Claude 3.5 Sonnet)",
-      "SQL Context Window Injection (Sliding 50-Record Batching)",
-      "Resend Automated Cron Dispatch (0 8 1 * *)",
-      "PostgreSQL Sentiment Aggregation Queries",
-      "Interactive Chart.js & TailwindCSS"
+    id: "finance-portal",
+    title: "Credit Note Governance & Posting Anomaly Detection Ledger",
+    systemName: "Group Finance Integrity Portal",
+    unit: "Group Finance & Internal Audit",
+    badge: "Financial Governance & Audit",
+    unitLogo: "/logo2.png",
+    businessChallenge:
+      "Credit note requests moved across desks on physical paper routing slips. This resulted in processing delays across properties, audit paper trail gaps, and the ongoing risk of undetected duplicate or triplicate credit entries in the general ledger.",
+    engineeredSolution:
+      "Engineered an online credit note management platform equipped with an automated anomaly-detection algorithm that cross-checks invoice numbers, guest folios, and amounts to instantly flag potential duplicate and triplicate postings. Replaced manual paperwork with an auditable four-tier digital approval workflow: Initiator → Internal Audit → Financial Controller → General Manager, complete with instant email action alerts and one-click PDF reconciliation summaries.",
+    operationalImpact:
+      "Accelerated credit note approval turnaround times by 75% and established a complete, unalterable digital audit trail across all commercial adjustments.",
+    keyOutcomes: [
+      "Automated algorithmic detection of duplicate/triplicate postings prior to sign-off",
+      "Strict 4-tier digital approval pipeline with role-based segregation of duties",
+      "Immutable audit logs with timestamped approval histories and explanatory remarks",
+      "One-click branded PDF credit note voucher generation for accounting files"
     ],
-    codePatterns: "Retrieval-Augmented Generation (RAG) with Temporal Batching & Structured JSON Output Guardrails",
-    quantifiableROI: [
+    technologies: [
+      "Next.js App Router",
+      "Django REST Framework",
+      "PostgreSQL (Strict Audit Schemas)",
+      "TanStack Query",
+      "PDF Ledger Generation Engine",
+      "Resend Email Workflows"
+    ],
+    architecturalDetails: [
       {
-        metric: "< 24h",
-        label: "Guest Complaint Resolution",
-        description: "Critical feedback triggers immediate automated alerts to unit general managers."
+        label: "State Machine Security",
+        description: "Enforces non-bypassable sequential transitions: Initiator submission → Internal Audit review → Financial Controller endorsement → General Manager sign-off."
       },
       {
-        metric: "12 hrs",
-        label: "Saved Monthly per Manager",
-        description: "Automated executive digests eliminate manual spreadsheet synthesis and qualitative categorization."
+        label: "Duplicate Detection Algorithm",
+        description: "Multi-field fuzzy hashing checking invoice IDs, guest folios, and currency amounts against historical approved ledgers to intercept duplicate claims."
       },
       {
-        metric: "98.4%",
-        label: "Sentiment Categorization Accuracy",
-        description: "Multi-dimensional scoring across food temperature, staff courtesy, speed, and ambiance."
+        label: "Audit Trail Immutability",
+        description: "Every action, comment, approval, or rejection generates an append-only audit event with user identity, timestamp, and IP address."
       }
-    ],
-    coreFeatures: [
-      "Real-time sentiment categorization into Culinary, Service Velocity, Ambiance, and Value",
-      "Root-cause diagnostic engine highlighting specific dish names, shifts, or facilities",
-      "Automated monthly executive PDF briefing dispatched directly to directors",
-      "Searchable historical semantic archive spanning over 5,000 guest interactions"
     ]
   },
   {
     id: "dhow-cruise",
-    title: "Tamarind Dhow Marine Hospitality Operations & Yield Core",
-    badge: "Marine Operations & IoT",
-    businessDomain: "Harbour Cruise Operations, Ticketing & Pantry Control",
-    executiveSummary: "Engineered an end-to-end marine operations core handling harbour cruise reservations, sub-second smartphone camera QR check-in, and automated culinary yield reconciliation.",
-    businessProblem: "The historic Tamarind Dhow cruises in Mombasa harbour relied on paper manifests prone to dockside check-in congestion, ticket duplication, and delayed seafood yield calculations against booked covers.",
-    architecturalSolution: "Built a mobile-first operations hub featuring client-side high-speed QR code scanning powered by html5-qrcode. Created real-time passenger manifest sync and integrated a daily pantry cost calculator linking covers booked to seafood provisioning yields.",
-    technologiesPutInUse: [
-      "Next.js Progressive Web App (PWA)",
-      "html5-qrcode (Sub-Second In-Browser Camera Video Canvas Scanning)",
-      "PostgreSQL Transactional Manifest Engine",
-      "Prisma ORM",
-      "TailwindCSS (High-Contrast Maritime Dark Mode)"
+    title: "Tamarind Dhow Cruise Operations & Digital QR Boarding Scanner",
+    systemName: "Tamarind Dhow Cruise Core",
+    unit: "Tamarind Dhow (Mombasa Harbour)",
+    badge: "Marine Operations & Cost Control",
+    unitLogo: "/dhow.jpg",
+    businessChallenge:
+      "Boarding dinner and lunch cruise guests on the jetty relied on manual clipboard paper manifests. This created boarding queues during high-density sailings and delayed crucial kitchen visibility into exact passenger counts, special dietary requirements, and galley provisioning food costs.",
+    engineeredSolution:
+      "Developed a mobile-first operations system featuring high-speed smartphone camera QR code scanning for instant guest boarding verification directly at the jetty. Engineered real-time supervisor dashboards providing instant visibility into passenger headcounts, table seating allocations, beverage addon packages, sailing revenues, and daily food cost percentages versus wastage.",
+    operationalImpact:
+      "Significantly accelerated boarding on busy sailings, eliminated unverified boardings, and gave culinary supervisors daily margin control over food and beverage expenditure.",
+    keyOutcomes: [
+      "Sub-second digital guest check-in via smartphone camera QR scanning (html5-qrcode)",
+      "Live manifest synchronization between jetty greeters and onboard galley teams",
+      "Daily visibility into food cost percentages vs. galley wastage per sailing",
+      "Beverage addon tracking and dietary requirement alerts rendered on boarding pass scans"
     ],
-    codePatterns: "High-Frequency Camera Stream Video Decoding with Local Storage Deduplication & Optimistic UI",
-    quantifiableROI: [
-      {
-        metric: "< 1s",
-        label: "Boarding Pass Validation",
-        description: "Eliminated dockside boarding queues across daily lunch and dinner harbour sailings."
-      },
-      {
-        metric: "15%",
-        label: "Reduction in Pantry Wastage",
-        description: "Real-time sync between reservations and galley provisioning prevents over-prepping."
-      },
-      {
-        metric: "10 min",
-        label: "Post-Cruise Reconciliation",
-        description: "Food cost % vs. gross revenue calculated immediately upon vessel docking."
-      }
-    ],
-    coreFeatures: [
-      "Sub-second browser camera QR boarding pass verification with audio/haptic feedback",
-      "Live sailing manifest synchronization between dockside greeters and ship captain",
-      "Galley provisioning calculator estimating seafood requirements based on booked covers",
-      "Special dietary requirements and VIP alert badges rendered on passenger manifests"
-    ],
-    unitLogo: "/dhow.jpg"
-  },
-  {
-    id: "elimu-lms",
-    title: "Elimu Digital Learning & SOP Institutional Hub",
-    badge: "Enterprise Knowledge Base",
-    businessDomain: "Workforce Training, RBAC SOP Isolation & Conversational AI",
-    executiveSummary: "Developed an enterprise digital learning and standard operating procedure hub enabling over 1,000 staff to access role-specific training modules and query brand standards via conversational AI.",
-    businessProblem: "Printed SOP manuals sat in office binders, resulting in inconsistent service delivery across properties and an onboarding cycle of several weeks for new hospitality recruits.",
-    architecturalSolution: "Built a centralized digital learning repository with strict Role-Based Access Control (RBAC) isolating kitchen recipes, front-desk standards, and security protocols. Integrated an AI document chat engine providing conversational answers grounded in Tamarind's official policy files.",
-    technologiesPutInUse: [
+    technologies: [
       "Next.js App Router",
-      "Conversational Vector Document Query Engine",
-      "PostgreSQL with Role-Based Schema Separation",
-      "Prisma ORM",
+      "React 19 & TypeScript",
+      "html5-qrcode (Camera Video Canvas Scanner)",
+      "Django REST Framework",
+      "PostgreSQL",
       "TailwindCSS"
     ],
-    codePatterns: "Role-Based Content Routing with Grounded Retrieval & Token-Efficient Document Chunking",
-    quantifiableROI: [
+    architecturalDetails: [
       {
-        metric: "40%",
-        label: "Faster Staff Onboarding",
-        description: "New kitchen and front-of-house staff complete mandatory brand training in 4 days vs 2 weeks."
+        label: "In-Browser QR Decoding",
+        description: "High-frequency video stream frame sampling using client-side canvas decoding, validating boarding passes in under 400ms on standard mobile browsers."
       },
       {
-        metric: "100%",
-        label: "Standardized SOP Delivery",
-        description: "Direct mobile access to approved culinary recipes and service etiquette across all units."
+        label: "Galley Margin Engine",
+        description: "Real-time formula comparing booked guest covers against pantry provisions, calculating daily food cost percentage immediately upon cruise completion."
       },
       {
-        metric: "5,000+",
-        label: "AI Queries Answered",
-        description: "Instant policy and procedure clarifications without interrupting department heads."
+        label: "Maritime Safety Manifest",
+        description: "Instant electronic passenger manifest exportable in real time for port authorities and emergency management."
       }
-    ],
-    coreFeatures: [
-      "Departmental RBAC ensuring staff view only curricula relevant to their operational unit",
-      "Conversational AI assistant answering queries with direct citations to official SOP manuals",
-      "Interactive module completion tracking and assessment scoring",
-      "Mobile-first responsive interface optimized for shift-based staff smartphones"
     ]
   },
   {
-    id: "kaizen-portal",
-    title: "Kaizen Zero-Friction Staff Innovation & Continuous Improvement Intake",
-    badge: "Employee Innovation",
-    businessDomain: "Operational Excellence & Staff Welfare",
-    executiveSummary: "Pioneered a passwordless continuous improvement portal allowing staff across floor, kitchen, and engineering divisions to submit operational enhancements verified instantly via Staff ID.",
-    businessProblem: "Grassroots staff innovation was blocked by conventional login barriers (forgotten passwords, lack of corporate email accounts for floor staff) and lack of feedback visibility.",
-    architecturalSolution: "Architected a zero-login verification pipeline that cross-references employee master records via Staff ID or phone in real time. Built a Kanban review console for the Kaizen Committee with automated SMS/email progress notifications.",
-    technologiesPutInUse: [
-      "Next.js Server Actions",
-      "Zero-Password Employee Verification Engine",
-      "PostgreSQL Database",
-      "Prisma ORM",
-      "Resend Automated Notification System",
-      "TailwindCSS"
+    id: "elimu-sops",
+    title: "Tamarind Elimu: Group SOP Knowledge Repository & AI Assistant",
+    systemName: "Tamarind Elimu LMS",
+    unit: "Group Human Resources & Operations",
+    badge: "Knowledge Base & Training",
+    unitLogo: "/logo.png",
+    businessChallenge:
+      "Standard Operating Procedures (SOPs) across culinary, service, front office, and maintenance divisions were locked in bulky physical office binders. This made procedure lookup slow for staff and prevented department heads from verifying whether mandatory brand standards were being read and understood.",
+    engineeredSolution:
+      "Built a centralized digital learning and SOP portal featuring an embedded AI conversational assistant. Staff can ask questions in natural language and receive concise, accurate answers referencing the exact approved SOP manual. Built department-level Role-Based Access Control (RBAC) so employees access only curricula relevant to their operational role, paired with manager compliance tracking dashboards.",
+    operationalImpact:
+      "Replaced outdated physical manuals, accelerated onboarding for new hospitality recruits by over 40%, and provided management with verifiable records of compliance.",
+    keyOutcomes: [
+      "Conversational SOP Q&A assistant grounded strictly in verified Tamarind documentation",
+      "Department-level Role-Based Access Control (RBAC) isolating sensitive operational manuals",
+      "Managerial oversight dashboard tracking employee reading progress and completion",
+      "Mobile-friendly micro-learning accessible on staff smartphones during shift briefings"
     ],
-    codePatterns: "Tokenless Identity Verification with Rate-Limited Roster Cross-Referencing",
-    quantifiableROI: [
+    technologies: [
+      "Next.js App Router",
+      "Google Generative AI (Grounded Document Chat)",
+      "Django REST Framework",
+      "PostgreSQL (RBAC Schemas)",
+      "In-Browser PDF Viewer Engine"
+    ],
+    architecturalDetails: [
       {
-        metric: "300%+",
-        label: "Increase in Submissions",
-        description: "Floor staff, stewarding, and maintenance submitted over 3x more practical improvement ideas."
+        label: "Grounded Document Chunking",
+        description: "Official SOP PDFs parsed and indexed with metadata tags, preventing hallucinations by forcing the AI to cite specific page sections."
       },
       {
-        metric: "< 60s",
-        label: "Submission Time",
-        description: "Zero login barriers allowed idea submission from any smartphone in under a minute."
+        label: "Departmental Access Boundaries",
+        description: "Strict RBAC ensures culinary teams see only culinary and food safety SOPs, front office sees guest handling standards, and management views executive guidelines."
       },
       {
-        metric: "28",
-        label: "Operational Innovations Adopted",
-        description: "Implemented ideas spanning kitchen waste reduction, guest luggage handling, and energy savings."
+        label: "Reading Telemetry",
+        description: "Event-driven tracking recording module completion timestamps for HR training audits."
       }
+    ]
+  },
+  {
+    id: "kaizen-tracker",
+    title: "Kaizen Continuous Improvement & Zero-Login Staff Intake Portal",
+    systemName: "Kaizen Innovation Engine",
+    unit: "General Management & Staff Welfare Committee",
+    badge: "Employee Innovation",
+    unitLogo: "/logo2.png",
+    businessChallenge:
+      "Capturing staff innovation ideas across multiple branches was difficult because many frontline kitchen, stewarding, and maintenance staff do not have company email addresses or office computer access. Traditional login systems created a barrier to participation.",
+    engineeredSolution:
+      "Created a frictionless, zero-login submission portal where staff enter only their Staff ID and Email, validated in real time against the internal HR roster. Employees can attach smartphone photos directly before submitting ideas. Built multi-level management views: Department Managers track initiatives on visual Kanban boards while General Managers view branch-wide performance rollups.",
+    operationalImpact:
+      "Removed credential barriers to drive widespread staff participation across all units while maintaining complete HR verification.",
+    keyOutcomes: [
+      "Zero-login public intake flow secured via real-time HR roster lookup",
+      "Direct smartphone camera photo upload for visual before-and-after improvement proofs",
+      "Departmental Kanban status boards (Proposed → Under Review → In Progress → Implemented)",
+      "Location-level aggregate analytics for General Management"
     ],
-    coreFeatures: [
-      "Frictionless zero-password intake validated against verified HR employee database",
-      "Structured categorization across Safety, Guest Delight, Cost Reduction, and Efficiency",
-      "Committee evaluation board with scoring, cost-benefit analysis, and implementation tracking",
-      "Recognition leaderboard celebrating active contributors across departments"
+    technologies: [
+      "Next.js App Router",
+      "Drizzle ORM / Prisma",
+      "PostgreSQL",
+      "Cloud Image Upload Pipeline",
+      "Multi-Tier RBAC Management Consoles"
+    ],
+    architecturalDetails: [
+      {
+        label: "Zero-Password HR Validation",
+        description: "Validates Staff ID against employee master records via single-purpose rate-limited API, eliminating forgotten passwords."
+      },
+      {
+        label: "Photo Proof Handling",
+        description: "Automated mobile photo compression ensuring quick submissions over mobile 3G/4G connections."
+      },
+      {
+        label: "Multi-Tier Review Pipeline",
+        description: "Visual Kanban workflow allowing department heads to estimate implementation costs and tag recognized staff."
+      }
     ]
   },
   {
     id: "village-booking",
-    title: "Tamarind Village Direct Booking & Yield Protection Portal",
-    badge: "Digital Distribution",
-    businessDomain: "Direct Hospitality Revenue & Rate Parity",
-    executiveSummary: "Engineered the direct guest portal for Tamarind Village oceanfront luxury apartments in Mombasa, integrating ProfitRoom booking APIs to capture direct revenue with 0% OTA commission loss.",
-    businessProblem: "High reliance on Online Travel Agencies (OTAs) like Booking.com and Expedia eroded top-line profit margins by 15% to 25% per reservation.",
-    architecturalSolution: "Built a high-converting luxury web experience featuring deep integration with the ProfitRoom booking engine for real-time inventory and rate parity. Implemented automated SEO structured data and rich media architectural showcases.",
-    technologiesPutInUse: [
-      "Next.js (Static Regeneration & Edge Delivery)",
-      "ProfitRoom Booking Engine API Integration",
-      "Schema.org Hotel & Apartment Rich Snippets",
-      "TailwindCSS with Bespoke Luxury Aesthetics",
-      "WhatsApp Concierge Direct Routing"
+    title: "Tamarind Village Web Revamp & Direct Booking Engine Integration",
+    systemName: "Tamarind Village Web Architecture",
+    unit: "Tamarind Village & Group Revenue Management",
+    badge: "Direct Distribution & Revenue",
+    unitLogo: "/village.png",
+    businessChallenge:
+      "Heavy reliance on third-party Online Travel Agencies (OTAs) resulted in high 15%–25% commission deductions on luxury oceanfront suites, alongside manual routing delays for banquet, meeting, and dining inquiries.",
+    engineeredSolution:
+      "Supported the technical overhaul and redesign of the Tamarind Village website and integrated the ProfitRoom direct booking engine API, allowing guests to view live suite availability, view transparent seasonal rates, and reserve directly online. Built an automated inquiry engine that instantly categorizes and routes guest questions for restaurants, meetings, and accommodations directly to departmental inboxes with zero manual delay.",
+    operationalImpact:
+      "Minimized third-party booking commissions, boosted direct guest inquiries, and established live rate parity across booking channels.",
+    keyOutcomes: [
+      "Direct ProfitRoom booking engine integration with live suite rates and availability",
+      "Significant reduction in third-party OTA commission leakage on direct reservations",
+      "Automated routing of event and dining inquiries to specific department inboxes",
+      "Fast, fluid luxury UI with high mobile conversion"
     ],
-    codePatterns: "Edge-Optimized Static Delivery with Dynamic Reservation Deep-Linking & Rich Metadata Schema",
-    quantifiableROI: [
+    technologies: [
+      "React 19 & Next.js",
+      "ProfitRoom API Integration",
+      "PostgreSQL",
+      "Resend Automated Email Dispatch",
+      "SEO Schema.org Structured Metadata"
+    ],
+    architecturalDetails: [
       {
-        metric: "0%",
-        label: "OTA Commission Leakage",
-        description: "Direct reservations process through the Group's own merchant gateway without OTA commissions."
+        label: "ProfitRoom API Deep Linking",
+        description: "Seamless synchronization between promotional room packages and the ProfitRoom booking checkout engine."
       },
       {
-        metric: "+32%",
-        label: "Direct Conversion Rate",
-        description: "Frictionless mobile booking flow boosted direct inquiries and completed bookings."
+        label: "Lead Categorization Engine",
+        description: "Keyword-based form parsing directing wedding, conference, and suite inquiries to their respective coordinators."
       },
       {
-        metric: "< 1.2s",
-        label: "LCP Page Load Speed",
-        description: "High-resolution architectural photography optimized for lightning-fast mobile loading."
+        label: "Mobile Conversion Optimization",
+        description: "Lightweight asset delivery ensuring under 1.5s load times on international guest mobile connections."
       }
-    ],
-    coreFeatures: [
-      "Real-time rate and inventory synchronization via direct ProfitRoom booking engine deep links",
-      "Interactive oceanfront suite explorer with floorplans, amenities, and virtual tours",
-      "Direct concierge inquiry channel routing guest requests instantly to reservations desk",
-      "Full SEO optimization capturing organic search traffic for Mombasa luxury apartments"
-    ],
-    unitLogo: "/village.png"
-  },
-  {
-    id: "sherehe-ticketing",
-    title: "Sherehe High-Capacity Hospitality Ticketing & M-Pesa Engine",
-    badge: "FinTech & Event Logistics",
-    businessDomain: "Cashless Event Ticketing & Gate Validation",
-    executiveSummary: "Architected a high-concurrency event ticketing platform powered by Safaricom Daraja M-Pesa STK push and sub-second cryptographic QR gate scanning, deployed for premier events like L-Boogie.",
-    businessProblem: "Large-scale hospitality events suffered from long queue times, slow manual cash or paybill verification, and counterfeit paper tickets.",
-    architecturalSolution: "Built a cashless ticketing engine with instant M-Pesa STK push checkout, webhook payment confirmation, automated cryptographic PDF ticket generation, and an offline-tolerant QR gate scanner app.",
-    technologiesPutInUse: [
-      "Next.js App Router",
-      "Safaricom Daraja 2.0 API (M-Pesa STK Push)",
-      "Cryptographic Single-Use QR Engine",
-      "html5-qrcode Video Stream Scanner",
-      "PostgreSQL Transactional Ledger",
-      "Resend Automated PDF Ticket Delivery"
-    ],
-    codePatterns: "Idempotent Webhook Payment Processing with Nonce-Based Cryptographic Ticket Validation",
-    quantifiableROI: [
-      {
-        metric: "100%",
-        label: "Cashless Instant Reconciliation",
-        description: "100% of event revenues deposited directly to bank merchant accounts in real time."
-      },
-      {
-        metric: "0",
-        label: "Counterfeit Redemptions",
-        description: "Cryptographically signed QR tokens prevent ticket duplication or double-scanning."
-      },
-      {
-        metric: "< 2s",
-        label: "Gate Turnaround per Attendee",
-        description: "Sub-second camera scan allows rapid guest ingress and crowd flow management."
-      }
-    ],
-    coreFeatures: [
-      "Frictionless M-Pesa STK push checkout triggering instant PIN prompt on attendee's phone",
-      "Automated branded PDF ticket generation with high-density security QR code",
-      "Mobile gate scanner interface validating tickets in real time across multiple entrance gates",
-      "Live revenue and gate attendance telemetry dashboard for event directors"
     ]
   },
   {
-    id: "it-service-desk",
-    title: "Group IT Infrastructure & SLA Incident Dispatch",
-    badge: "IT Infrastructure",
-    businessDomain: "Enterprise Telemetry, POS Reliability & Asset Lifecycle",
-    executiveSummary: "Designed a centralized IT operations console monitoring hardware health across properties, reducing Mean Time to Resolution (MTTR) by 50% for critical point-of-sale and network outages.",
-    businessProblem: "IT service requests from busy dining rooms and kitchens were communicated informally via phone calls and WhatsApp, leading to untracked SLAs and recurring POS disruptions during peak service.",
-    architecturalSolution: "Engineered a tiered IT ticketing dispatch system with automated property routing, SLA countdowns, and hardware asset registry mapping POS terminals, kitchen display systems, and Wi-Fi access points.",
-    technologiesPutInUse: [
-      "Next.js Server Actions",
-      "PostgreSQL Asset Registry & Ticket Ledger",
-      "Prisma ORM",
-      "Resend Automated SLA Escalation Alerts",
-      "TailwindCSS Dark Mode Dashboard"
+    id: "tamarind-helpdesk",
+    title: "Tamarind IT Operations & Helpdesk Ticketing Platform",
+    systemName: "Group IT Service Desk (Phase 2)",
+    unit: "Group Information Technology & Facilities",
+    badge: "IT Infrastructure & SLA",
+    unitLogo: "/logo2.png",
+    businessChallenge:
+      "IT and maintenance service requests from dining rooms, kitchens, and front desks were communicated informally via phone calls and WhatsApp, leading to untracked SLAs and recurring point-of-sale or network disruptions during peak service hours.",
+    engineeredSolution:
+      "Engineered a centralized internal service desk platform streamlining request intake, setting clear departmental Service Level Agreements (SLAs), and providing management with operational MTTR metrics and hardware asset tracking.",
+    operationalImpact:
+      "Halved resolution times for critical POS and network outages and established clear accountability across IT and maintenance support.",
+    keyOutcomes: [
+      "Centralized ticket intake by property, department, and severity tier",
+      "Automated SLA countdown timers and escalation notifications to on-call technicians",
+      "POS terminal and network access point asset lifecycle registry",
+      "Weekly operational uptime summaries for General Management"
     ],
-    codePatterns: "Rule-Based Event Dispatcher with Escalation Countdown Timers & Hardware Dependency Graphs",
-    quantifiableROI: [
+    technologies: [
+      "Next.js App Router",
+      "PostgreSQL Ledger",
+      "Django REST Framework",
+      "Resend Escalation Webhooks",
+      "TailwindCSS"
+    ],
+    architecturalDetails: [
       {
-        metric: "50%",
-        label: "Reduction in IT MTTR",
-        description: "Critical POS and network disruptions resolved in under half the historical turnaround time."
+        label: "Severity-Based Dispatch",
+        description: "Immediate high-priority SMS and email escalation when dining room POS or payment terminals are flagged down."
       },
       {
-        metric: "99.8%",
-        label: "Peak Service POS Uptime",
-        description: "Proactive hardware lifecycle tracking prevented sudden terminal failures on busy weekends."
-      },
-      {
-        metric: "100%",
-        label: "SLA Accountability",
-        description: "Every support incident tracked from reporting to post-mortem sign-off."
+        label: "Asset Registry Mapping",
+        description: "Links trouble tickets directly to physical hardware IDs, highlighting recurring hardware failures."
       }
+    ]
+  },
+  {
+    id: "sacco-banking",
+    title: "Tamarind Sacco Core Banking & Financial Ledger Platform",
+    systemName: "Tamarind Sacco Core Platform",
+    unit: "Tamarind Sacco Society Limited",
+    badge: "Core Banking & Accounting",
+    unitLogo: "/logo.png",
+    businessChallenge:
+      "Member savings, share capital, loan disbursements, and monthly interest postings were tracked in complex spreadsheets prone to balance discrepancies, manual recalculation errors, and delayed monthly reporting.",
+    engineeredSolution:
+      "Architected and onboarded an independent, cloud-hosted core banking platform for Tamarind Sacco featuring an automated double-entry ledger. Every member deposit, loan repayment, and fee automatically posts balanced debit and credit entries to the general ledger, complete with automated loan eligibility calculation and guarantor commitment tracking.",
+    operationalImpact:
+      "Established 100% automated double-entry accounting integrity, eliminated spreadsheet discrepancies, and provided members with real-time balance transparency.",
+    keyOutcomes: [
+      "Automated double-entry General Ledger ensuring books are always balanced and audit-ready",
+      "Automated loan qualification and guarantor lock verification based on member savings",
+      "Asynchronous non-blocking audit logging of all member and staff transactions",
+      "Independent dedicated database and member portal"
     ],
-    coreFeatures: [
-      "Property and severity-based ticket auto-routing to on-call IT specialists",
-      "Asset lifecycle tracker recording purchase dates, warranties, and maintenance histories",
-      "Automated executive weekly uptime and incident analysis reports",
-      "Integrated knowledge base linking troubleshooting runbooks directly to incident categories"
+    technologies: [
+      "Next.js App Router",
+      "Django REST Framework",
+      "PostgreSQL (Strict Decimal Math & Ledger Constraints)",
+      "Redis Caching",
+      "TailwindCSS"
+    ],
+    architecturalDetails: [
+      {
+        label: "Atomic Double-Entry Transactions",
+        description: "Postings are executed within database transactions where debits must equal credits, preventing out-of-balance entries."
+      },
+      {
+        label: "Guarantor Risk Engine",
+        description: "Algorithmic validation checking free member shares before locking them as collateral for approved loans."
+      }
     ]
   }
 ];
 
-export const CORE_ARCHITECTURE_PILLARS = [
+export const TAMARIND_ARCHITECTURE_STANDARDS = [
   {
-    title: "Finite State Machine Governance",
-    subtitle: "Zero-Trust Financial & Operational State Transitions",
-    description: "Every credit note, requisition, and reservation is enforced via an atomic database-level state machine. State changes cannot bypass intermediate sign-offs, creating an immutable compliance barrier."
+    title: "Deterministic Multi-Tier State Machines",
+    description: "Financial governance, credit notes, and requisitions require strict, non-bypassable sequential approvals enforced directly at the database transaction layer."
   },
   {
-    title: "Context-Injected AI over Brute Force",
-    subtitle: "Precision RAG Pipelines for Executive Decision Making",
-    description: "Instead of hallucination-prone open prompts, guest sentiment is processed via a sliding 50-record SQL context window that injects verbatim operational feedback with multi-dimensional sentiment scoring."
+    title: "Context-Injected Operational AI",
+    description: "Rather than general ungrounded prompts, guest sentiment and SOP querying utilizes focused SQL context slices that provide instant, data-backed operational answers."
   },
   {
-    title: "Zero-Barrier Workforce Adoption",
-    subtitle: "Passwordless Validation against HR Database",
-    description: "Hospitality floor staff shouldn't be alienated by complex credential setups. Systems like Kaizen validate identity in real time against employee master records, increasing employee participation by 300%."
+    title: "Frictionless Zero-Login Workforce UX",
+    description: "Frontline hospitality staff interact through single-purpose interfaces validated in real time against the HR roster, eliminating the barrier of forgotten passwords."
   },
   {
-    title: "Sub-Second In-Browser Mobile Edge",
-    subtitle: "Offline-Tolerant Camera QR Stream Scanning",
-    description: "Dockside and gate scanning utilizes client-side WebRTC and Canvas decoding via html5-qrcode, executing in under a second without requiring native app store downloads or high-bandwidth uplinks."
+    title: "Sub-Second In-Browser Camera Scanning",
+    description: "Jetty and event check-ins leverage client-side WebRTC and Canvas video stream decoding, executing in under 400ms without requiring dedicated hardware or app store downloads."
   }
 ];
