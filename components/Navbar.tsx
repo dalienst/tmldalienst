@@ -54,6 +54,12 @@ export default function Navbar() {
               Systems (7)
             </a>
             <a
+              href="#values"
+              className="text-slate-600 hover:text-slate-950 transition-colors"
+            >
+              Core Values
+            </a>
+            <a
               href="#standards"
               className="text-slate-600 hover:text-slate-950 transition-colors"
             >

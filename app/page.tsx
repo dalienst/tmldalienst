@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CaseStudyTabs from "@/components/CaseStudyTabs";
+import CoreValuesSection from "@/components/CoreValuesSection";
 import ArchitecturePrinciples from "@/components/ArchitecturePrinciples";
 import DepartmentSpotlight from "@/components/DepartmentSpotlight";
 import Footer from "@/components/Footer";
@@ -12,6 +13,7 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <CaseStudyTabs />
+        <CoreValuesSection />
         <ArchitecturePrinciples />
         <DepartmentSpotlight />
       </main>

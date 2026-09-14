@@ -1,9 +1,57 @@
+export interface TamarindCoreValue {
+  id: string;
+  name: string;
+  statement: string;
+  iconName: string;
+  badgeColor: string;
+}
+
+export const TAMARIND_CORE_VALUES: TamarindCoreValue[] = [
+  {
+    id: "customer-satisfaction",
+    name: "Customer Satisfaction",
+    statement: "To make every single customer feel welcome, valued and totally satisfied.",
+    iconName: "HeartHandshake",
+    badgeColor: "bg-amber-50 text-[#b8860b] border-amber-200"
+  },
+  {
+    id: "hr-development",
+    name: "HR Development / Learning and Growth",
+    statement: "To develop staff who are enthusiastic, vibrant, responsible, flexible and courteous while ensuring that they feel empowered, respected and cared for in harmonious work environment.",
+    iconName: "Users",
+    badgeColor: "bg-emerald-50 text-[#004d40] border-emerald-200"
+  },
+  {
+    id: "innovation-process",
+    name: "Innovation / Business Process",
+    statement: "To challenge all staff to constantly strive to initiate fresh, enticing and innovative products, services and processes.",
+    iconName: "Lightbulb",
+    badgeColor: "bg-blue-50 text-[#0b3b82] border-blue-200"
+  },
+  {
+    id: "shareholder-financial",
+    name: "Shareholder Satisfaction / Financial Results",
+    statement: "To achieve long-term growth through profitability in relation to shareholder investment.",
+    iconName: "TrendingUp",
+    badgeColor: "bg-purple-50 text-purple-800 border-purple-200"
+  },
+  {
+    id: "community-relations",
+    name: "Community Relations",
+    statement: "To treat the wider community and stakeholders with utmost respect, integrity and be actively involved in our community and environmental concerns.",
+    iconName: "ShieldCheck",
+    badgeColor: "bg-teal-50 text-teal-800 border-teal-200"
+  }
+];
+
 export interface TamarindDirectorCaseStudy {
   id: string;
   title: string;
   systemName: string;
   unit: string;
   badge: string;
+  coreValue: string;
+  coreValueAlignment: string;
   unitLogo?: string;
   businessChallenge: string;
   engineeredSolution: string;
@@ -23,6 +71,8 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
     systemName: "AI Guest Sentiment & Operations Analyst",
     unit: "Tamarind Mombasa (Dhow, Village, Restaurant)",
     badge: "Operational AI & Intelligence",
+    coreValue: "Customer Satisfaction",
+    coreValueAlignment: "Actively fulfills the commitment to make every single customer feel welcome, valued and totally satisfied by converting guest feedback into immediate operational resolutions within 24 hours.",
     unitLogo: "/logo.png",
     businessChallenge:
       "Guest feedback across dining rooms, dhow cruises, and apartment suites was captured on physical paper comment cards and scattered spreadsheets. This created reporting delays and made it difficult for General Management to quickly identify emerging service trends or celebrate recognized staff.",
@@ -65,6 +115,8 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
     systemName: "Finance & Credit Note Portal",
     unit: "Group Finance & Internal Audit",
     badge: "Financial Governance & Audit",
+    coreValue: "Shareholder Satisfaction / Financial Results",
+    coreValueAlignment: "Drives long-term growth and profitability in relation to shareholder investment by eliminating duplicate ledger adjustments and enforcing strict audit approval controls.",
     unitLogo: "/logo2.png",
     businessChallenge:
       "Credit note requests moved across desks on physical paper routing slips. This resulted in processing delays across properties, audit paper trail gaps, and the ongoing risk of undetected duplicate or triplicate credit entries in the general ledger.",
@@ -107,6 +159,8 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
     systemName: "Tamarind Dhow Cruise Core",
     unit: "Tamarind Dhow (Mombasa Harbour)",
     badge: "Marine Operations & Cost Control",
+    coreValue: "Customer Satisfaction",
+    coreValueAlignment: "Ensures every dining cruise guest experiences a welcoming, frictionless arrival through sub-second QR boarding while equipping the galley with live dietary and headcount visibility.",
     unitLogo: "/dhow.jpg",
     businessChallenge:
       "Boarding dinner and lunch cruise guests on the jetty relied on manual clipboard paper manifests. This created boarding queues during high-density sailings and delayed crucial kitchen visibility into exact passenger counts, special dietary requirements, and galley provisioning food costs.",
@@ -149,6 +203,8 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
     systemName: "Tamarind Elimu LMS",
     unit: "Group Human Resources & Operations",
     badge: "Knowledge Base & Training",
+    coreValue: "HR Development / Learning and Growth",
+    coreValueAlignment: "Develops staff who are enthusiastic, vibrant, responsible, flexible, and courteous by providing instant access to approved SOPs and AI procedural coaching.",
     unitLogo: "/logo.png",
     businessChallenge:
       "Standard Operating Procedures (SOPs) across culinary, service, front office, and maintenance divisions were locked in bulky physical office binders. This made procedure lookup slow for staff and prevented department heads from verifying whether mandatory brand standards were being read and understood.",
@@ -190,6 +246,8 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
     systemName: "Kaizen Innovation Engine",
     unit: "General Management & Staff Welfare Committee",
     badge: "Employee Innovation",
+    coreValue: "Innovation / Business Process",
+    coreValueAlignment: "Directly challenges all staff to constantly strive to initiate fresh, enticing and innovative processes through an accessible mobile intake channel.",
     unitLogo: "/logo2.png",
     businessChallenge:
       "Capturing staff innovation ideas across multiple branches was difficult because many frontline kitchen, stewarding, and maintenance staff do not have company email addresses or office computer access. Traditional login systems created a barrier to participation.",
@@ -231,6 +289,8 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
     systemName: "Tamarind Village Web Architecture",
     unit: "Tamarind Village & Group Revenue Management",
     badge: "Direct Distribution & Revenue",
+    coreValue: "Shareholder Satisfaction / Financial Results",
+    coreValueAlignment: "Achieves long-term profitability and shareholder value by optimizing direct bookings, transparent rates, and reducing OTA commission leakages.",
     unitLogo: "/village.png",
     businessChallenge:
       "Heavy reliance on third-party Online Travel Agencies (OTAs) resulted in high 15%–25% commission deductions on luxury oceanfront suites, alongside manual routing delays for banquet, meeting, and dining inquiries.",
@@ -272,6 +332,8 @@ export const TAMARIND_PROJECTS_FOR_DIRECTORS: TamarindDirectorCaseStudy[] = [
     systemName: "Group IT Service Desk (Phase 2)",
     unit: "Group Information Technology & Facilities",
     badge: "IT Infrastructure & SLA",
+    coreValue: "Innovation / Business Process",
+    coreValueAlignment: "Initiates fresh, reliable operational processes across Group properties by enforcing structured SLA resolution targets for mission-critical POS and network hardware.",
     unitLogo: "/logo2.png",
     businessChallenge:
       "IT and maintenance service requests from dining rooms, kitchens, and front desks were communicated informally via phone calls and WhatsApp, leading to untracked SLAs and recurring point-of-sale or network disruptions during peak service hours.",

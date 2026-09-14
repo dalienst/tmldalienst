@@ -14,7 +14,8 @@ import {
   CheckCircle2,
   AlertTriangle,
   Layers,
-  Code2
+  Code2,
+  HeartHandshake
 } from "lucide-react";
 
 export default function CaseStudyTabs() {
@@ -103,6 +104,9 @@ export default function CaseStudyTabs() {
                   <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-white text-slate-700 border border-slate-200">
                     {activeProject.badge}
                   </span>
+                  <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-amber-50 text-amber-900 border border-amber-200">
+                    Core Value: {activeProject.coreValue}
+                  </span>
                   <span className="text-xs text-slate-500 font-medium">
                     {activeProject.unit}
                   </span>
@@ -147,16 +151,35 @@ export default function CaseStudyTabs() {
             </div>
           </div>
 
-          {/* Measurable Operational Impact Banner */}
-          <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200 mb-8 flex items-start space-x-3.5">
-            <ShieldCheck className="w-5 h-5 text-[#d97706] shrink-0 mt-0.5" />
-            <div>
-              <span className="text-xs uppercase font-bold tracking-wider text-amber-900 block">
-                Operational Outcome &amp; Value
-              </span>
-              <p className="text-sm font-semibold text-slate-900 mt-1 leading-snug">
-                {activeProject.operationalImpact}
-              </p>
+          {/* Measurable Operational Impact & Core Value Alignment */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
+            <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200 flex items-start space-x-3.5">
+              <ShieldCheck className="w-5 h-5 text-[#d97706] shrink-0 mt-0.5" />
+              <div>
+                <span className="text-xs uppercase font-bold tracking-wider text-amber-900 block">
+                  Operational Outcome &amp; Value
+                </span>
+                <p className="text-sm font-semibold text-slate-900 mt-1 leading-snug">
+                  {activeProject.operationalImpact}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex items-start space-x-3.5">
+              <HeartHandshake className="w-5 h-5 text-[#d97706] shrink-0 mt-0.5" />
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs uppercase font-bold tracking-wider text-slate-500 block">
+                    Core Value Impact
+                  </span>
+                  <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                    {activeProject.coreValue}
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-700 mt-1.5 leading-relaxed">
+                  {activeProject.coreValueAlignment}
+                </p>
+              </div>
             </div>
           </div>
 
